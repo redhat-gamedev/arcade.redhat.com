@@ -1,0 +1,54 @@
+body {
+    color: #f1f1f1;
+    background: #121212;
+    font-family: "RedHatDisplay", sans-serif;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.game-list {
+    margin-top: 1.5em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2em;
+    max-width: 1000px;
+}
+
+[class*="pfe-l"] {
+    border: 1px solid red;
+}
+
+pfe-card {
+    opacity: 0;
+}
+
+body:not([unresolved]) pfe-card {
+    position: relative;
+    animation-name: slidein;
+    animation-delay: var(--card-anim-delay, 0);
+    animation-duration: 0.618s;
+    /* animation-timing-function: cubic-bezier(.64,.02,.94,.48); */
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0;
+        top: var(--card-anim-y);
+        left: var(--card-anim-x);
+    }
+
+    to {
+        opacity: 1;
+        top: 0;
+        left: 0;
+    }
+}
