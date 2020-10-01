@@ -1,4 +1,4 @@
-const keycloak = new Keycloak(window.kcConfig);
+const keycloak = new Keycloak();
 
 window.kc = keycloak;
 
@@ -34,4 +34,3 @@ keycloak.init().success(async function(authenticated) {
 }).error(function() {
     console.log('failed to initialize');
 });
-
