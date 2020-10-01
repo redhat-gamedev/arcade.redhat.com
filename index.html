@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+
+        <script>
+          window.kcConfig = {
+            url: `KEYCLOAK_URL`,
+            realm: `KEYCLOAK_REALM`,
+            clientId: `KEYCLOAK_CLIENT_ID`
+          }
+        </script>
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
         <title>arcade.redhat.com</title>
@@ -18,10 +27,11 @@
     </head>
     <body unresolved>
 
-        <script type="module">
-            import "https://unpkg.com/@patternfly/pfe-card@1.0.0-prerelease.56/dist/pfe-card.min.js";
-            import "https://unpkg.com/@patternfly/pfe-cta@1.0.0-prerelease.56/dist/pfe-cta.min.js";
-        </script>
+        <script defer src="KEYCLOAK_URL/auth/js/keycloak.js"></script>
+        <script defer src="auth.js"></script>
+
+        <script async type="module" src="https://unpkg.com/@patternfly/pfe-card@1.0.0-prerelease.56/dist/pfe-card.min.js"></script>
+        <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.0.0-prerelease.56/dist/pfe-cta.min.js"></script>
 
         <h1>
             RED HAT ARCADE
