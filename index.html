@@ -16,8 +16,9 @@
         </noscript>
 
     </head>
-    <body unresolved>
+    <body unresolved unauthenticated>
 
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.9.0/localforage.min.js"></script>
         <script defer src="keycloak.js"></script>
         <script defer src="auth.js"></script>
@@ -28,6 +29,8 @@
         <h1>
             RED HAT ARCADE
         </h1>
+
+        <span id="username"></span>
 
         <p>
             Celebrating We Are Red Hat Week 2020.  Brought to you by the Red Hat Gaming CoP.

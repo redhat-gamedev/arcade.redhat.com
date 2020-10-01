@@ -29,7 +29,7 @@ pfe-card {
     opacity: 0;
 }
 
-body:not([unresolved]) pfe-card {
+body:not([unresolved]):not([unauthenticated]) pfe-card {
     position: relative;
     animation-name: slidein;
     animation-delay: var(--card-anim-delay, 0);
