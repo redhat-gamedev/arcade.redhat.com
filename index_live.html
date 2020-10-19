@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>arcade.redhat.com</title>
+
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css">
+        <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-theme/latest/advanced-theme.min.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement@1.0.0-prerelease.56/dist/pfelement.min.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfe-styles@1.0.0-prerelease.56/dist/pfe-layouts.min.css" type="text/css" media="screen" charset="utf-8">
+
+        <noscript>
+            <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement@1.0.0-prerelease.56/dist/pfelement--noscript.min.css" type="text/css" media="screen" charset="utf-8">
+        </noscript>
+
+    </head>
+    <body unresolved unauthenticated>
+
+        <script defer src="keycloak.js"></script>
+        <script defer src="auth.js"></script>
+
+        <script async type="module" src="https://unpkg.com/@patternfly/pfe-card@1.0.0-prerelease.56/dist/pfe-card.min.js"></script>
+        <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.0.0-prerelease.56/dist/pfe-cta.min.js"></script>
+
+        <h1>
+            RED HAT ARCADE
+        </h1>
+
+        <span id="username"></span>
+
+        <p>
+            Celebrating We Are Red Hat Week 2020.  Brought to you by the Red Hat Gaming CoP.
+        </p>
+
+        <!-- <div class="pfe-l-grid pfe-m-gutters"> -->
+        <!--     <div class="pfe-l-grid__item">Default Item</div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-2-col"><code>pfe-m-2-col</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-10-col"><code>pfe-m-10-col</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-4-col"><code>pfe-m-4-col</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-4-col"><code>pfe-m-4-col</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-4-col"><code>pfe-m-4-col</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-6-col pfe-m-3-col-on-md"><code>pfe-m-6-col pfe-m-3-col-on-md</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-6-col pfe-m-3-col-on-md pfe-m-startat-7-col-on-md"><code>pfe-m-6-col -->
+        <!--             pfe-m-3-col-on-md pfe-m-startat-7-col-on-md</code></div> -->
+        <!--     <div class="pfe-l-grid__item pfe-m-6-col pfe-m-3-col-on-md"><code>pfe-m-6-col pfe-m-3-col-on-md</code></div> -->
+        <!-- </div> -->
+
+        <div class="game-list">
+
+            <pfe-card id="card-pod-escape" style="--card-anim-x: -50vw; --card-anim-y: -50vh; --card-anim-delay: 0s" pfe-color="darker">
+                <img pfe-overflow="top right left" src="./pod-escape.png">
+                <h2>Pod Escape</h2>
+                <p>TODO write Pod Escape description.</p>
+                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                    <a target="_blank" href="/pod-escape">PLAY</a>
+                </pfe-cta>
+            </pfe-card>
+
+            <pfe-card id="card-pity-about-earth" style="--card-anim-x: 50vw; --card-anim-y: -50vh; --card-anim-delay: 0.3s" pfe-color="darker">
+                <img pfe-overflow="top right left" src="./pity-about-earth.png">
+                <h2>Pity About Earth...</h2>
+                <p>TODO write Pity About Earth description.</p>
+                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                    <a target="_blank" href="/pity-about-earth">PLAY</a>
+                </pfe-cta>
+            </pfe-card>
+
+            <pfe-card id="card-bash" style="--card-anim-x: -50vw; --card-anim-y: 50vh; --card-anim-delay: 0.6s" pfe-color="darker">
+                <img pfe-overflow="top right left" src="./bash.png">
+                <h2>Command Line Heroes: BASH</h2>
+                <p>TODO write BASH description.</p>
+                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                    <a target="_blank" href="/bash">PLAY</a>
+                </pfe-cta>
+            </pfe-card>
+
+            <pfe-card id="card-zorbio" style="--card-anim-x: 50vw; --card-anim-y: 50vh; --card-anim-delay: 0.9s" pfe-color="darker">
+                <img pfe-overflow="top right left" src="./zorbio.png">
+                <h2>Zorbio</h2>
+                <p>TODO write Zorbio description.</p>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary">
+                        <a target="_blank" href="/zorbio">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="">
+                        <a href="#">View Source</a>
+                    </pfe-cta>
+                </div>
+            </pfe-card>
+
+        </div>
+
+    </body>
+</html>
