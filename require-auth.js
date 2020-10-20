@@ -4,9 +4,10 @@ function goHome(redirectTo="/") {
 try {
     let username = localStorage.getItem("arcade-username");
     if (!username) {
+        console.log('not logged in, going home');
         goHome(location.pathname);
     }
 } catch (e) {
-    console.log('not logged in, going home');
+    console.log('error determining login state, going home');
     goHome();
 }
