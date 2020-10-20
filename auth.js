@@ -29,13 +29,34 @@ keycloak.init().success(async function(authenticated) {
         localStorage.setItem("arcade-token", JSON.stringify(keycloak.tokenParsed));
     }
 
-    // if the token is stored locally, retrieve it and copy the username into a
-    console.log(`[auth] passing username ${name} to PAE`);
-    if (name) {
-        document.querySelector("#username").innerText = name;
-    }
+    if (authenticated) {
 
-    document.body.removeAttribute("unauthenticated");
+        // if a redirectTo parameter exists, navigate to it
+        const url = new URL(location);
+        const redirectTo = url.searchParams.get("redirectTo");
+
+        if (redirectTo) {
+            console.log(`redirect requested, destination: ${redirectTo}`);
+            const redirectUrl = new URL(redirectTo, location.origin);
+            const sameOrigin = location.origin === redirectUrl.origin;
+
+            if (sameOrigin) {
+                console.log(`redirect is valid, off we go`);
+                location.replace(redirectTo);
+            }
+            else {
+                console.error(`redirect is not same-origin, politely declining to redirect`);
+            }
+        }
+
+        // if the token is stored locally, retrieve it and copy the username into a
+        console.log(`[auth] passing username ${name} to PAE`);
+        if (name) {
+            document.querySelector("#username").innerText = name;
+        }
+
+        document.body.removeAttribute("unauthenticated");
+    }
 
 }).error(function() {
     console.log('failed to initialize');
