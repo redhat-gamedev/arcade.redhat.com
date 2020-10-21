@@ -49,6 +49,9 @@ keycloak.init().success(async function(authenticated) {
             }
         }
 
+    }
+
+    if (name) {
         // if the token is stored locally, retrieve it and copy the username into a
         console.log(`[auth] passing username ${name} to PAE`);
         if (name) {
