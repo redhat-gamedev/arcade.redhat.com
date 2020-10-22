@@ -64,3 +64,39 @@ body:not([unresolved]):not([unauthenticated]) pfe-card {
         left: 0;
     }
 }
+
+
+
+#username {
+    font-weight: bold;
+}
+pfe-card > figure {
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0.8em;
+    border-left: 2px solid grey;
+}
+pfe-card > figure blockquote  {
+    margin-left: 0;
+    margin-right: 0;
+}
+pfe-card > figure figcaption  {
+    position: relative;
+    font-style: italic;
+}
+pfe-card > figure figcaption:before  {
+    content: "— ";
+}
+.prize-eligible {
+    font-size: 0.9em;
+    font-weight: bold;
+    --pfe-icon--Color: #f9d000;
+    color: #00a8fc;
+    text-decoration: underline;
+    margin-bottom: 2em;
+}
+.prize-eligible span,
+.prize-eligible pfe-icon {
+    cursor: pointer;
+}
+

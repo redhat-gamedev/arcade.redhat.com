@@ -24,6 +24,8 @@
 
         <script async type="module" src="https://unpkg.com/@patternfly/pfe-card@1.0.0-prerelease.56/dist/pfe-card.min.js"></script>
         <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.0.0-prerelease.56/dist/pfe-cta.min.js"></script>
+        <script async type="module" src="https://unpkg.com/@patternfly/pfe-icon@1.0.0-prerelease.56/dist/pfe-icon.js"></script>
+        <script async type="module" src="https://unpkg.com/@patternfly/pfe-modal@1.0.0-prerelease.56/dist/pfe-modal.js"></script>
 
         <h1>
             RED HAT ARCADE
@@ -39,25 +41,27 @@
             (GPTE).
         </p>
 
-        <style type="text/css" media="screen">
-            pfe-card > figure {
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 0.8em;
-                border-left: 2px solid grey;
-            }
-            pfe-card > figure blockquote  {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            pfe-card > figure figcaption  {
-                position: relative;
-                font-style: italic;
-            }
-            pfe-card > figure figcaption:before  {
-                content: "— ";
-            }
-        </style>
+        <pfe-modal id="prizes">
+          <h2 slot="pfe-modal--header">Red Hat Arcade: WE ARE RED HAT WEEK Prizes</h2>
+          <p>
+              The top 3 scores for PodEscape and Pity About Earth will receive gift cards to the cool stuff store
+          </p>
+
+          <ul>
+              <li>
+                  <pfe-icon pfe-size="md" style="--pfe-icon--Color: gold" icon="rh-trophy"></pfe-icon>
+                  1st place: $50</li>
+              <li>
+                  <pfe-icon pfe-size="md" style="--pfe-icon--Color: silver" icon="rh-trophy"></pfe-icon>
+                  2nd place: $40</li>
+              <li>
+                  <pfe-icon pfe-size="md" style="--pfe-icon--Color: brown" icon="rh-trophy"></pfe-icon>
+                  3rd place: $30</li>
+          </ul>
+          <p>
+               If one associate gets multiple top-scores they will get the prize for their highest score. In case of a tie-score, a tie-breaker match will be scheduled.
+          </p>
+        </pfe-modal>
 
         <div class="game-list">
 
@@ -67,6 +71,11 @@
                 <p>
                     Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a team of Red Hatters passionate about gaming and Kubernetes.
                 </p>
+
+                <div class="prize-eligible">
+                    <pfe-icon pfe-size="lg" icon="rh-trophy"></pfe-icon><span>ELIGIBLE FOR PRIZES</span>
+                </div>
+
                 <div slot="pfe-card--footer">
                     <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
                         <a target="_blank" href="/pod-escape/">PLAY</a>
@@ -88,7 +97,11 @@
                     </blockquote>
                     <figcaption>the Universe</figcaption>
                 </figure>
-                <p>Protect Earth from incoming asteroids.</p>
+
+                <div class="prize-eligible">
+                    <pfe-icon pfe-size="lg" icon="rh-trophy"></pfe-icon><span>ELIGIBLE FOR PRIZES</span>
+                </div>
+
                 <div slot="pfe-card--footer">
                     <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
                         <a target="_blank" href="/pity-about-earth/">PLAY</a>
@@ -133,6 +146,12 @@
             </pfe-card>
 
         </div>
+
+        <script>
+            [...document.querySelectorAll(".prize-eligible")].forEach(trigger => trigger.addEventListener("click", function (event) {
+                document.querySelector("#prizes").open(event);
+            }));
+        </script>
 
     </body>
 </html>
