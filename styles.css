@@ -11,22 +11,34 @@ body {
 
     overflow-y: scroll;
     overflow-x: hidden;
+
+    margin-bottom: 4em;
 }
 
 .game-list {
     margin-top: 1.5em;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 2em;
-    max-width: 1000px;
+    /* max-width: 1000px; */
 }
 
-[class*="pfe-l"] {
-    border: 1px solid red;
+@media screen and (max-width: 1700px) {
+    .game-list {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .game-list {
+        grid-template-columns: 1fr;
+    }
 }
 
 pfe-card {
     opacity: 0;
+    width: 400px;
+    box-sizing: border-box;
 }
 
 body:not([unresolved]):not([unauthenticated]) pfe-card {

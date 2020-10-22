@@ -18,8 +18,9 @@
     </head>
     <body unresolved unauthenticated>
 
-        <script defer src="keycloak.js"></script>
-        <script defer src="auth.js"></script>
+        <!-- <script defer src="keycloak.js"></script> -->
+        <!-- <script defer src="auth.js"></script> -->
+        <script>document.body.removeAttribute("unauthenticated")</script>
 
         <script async type="module" src="https://unpkg.com/@patternfly/pfe-card@1.0.0-prerelease.56/dist/pfe-card.min.js"></script>
         <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.0.0-prerelease.56/dist/pfe-cta.min.js"></script>
@@ -47,33 +48,79 @@
         <!--     <div class="pfe-l-grid__item pfe-m-6-col pfe-m-3-col-on-md"><code>pfe-m-6-col pfe-m-3-col-on-md</code></div> -->
         <!-- </div> -->
 
+        <style type="text/css" media="screen">
+            pfe-card > figure {
+                margin-left: 0;
+                margin-right: 0;
+                padding-left: 0.8em;
+                border-left: 2px solid grey;
+            }
+            pfe-card > figure blockquote  {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            pfe-card > figure figcaption  {
+                position: relative;
+                font-style: italic;
+            }
+            pfe-card > figure figcaption:before  {
+                content: "— ";
+            }
+        </style>
+
         <div class="game-list">
 
             <pfe-card id="card-pod-escape" style="--card-anim-x: -50vw; --card-anim-y: -50vh; --card-anim-delay: 0s" pfe-color="darker">
                 <img pfe-overflow="top right left" src="./pod-escape.png">
                 <h2>Pod Escape</h2>
                 <p>TODO write Pod Escape description.</p>
-                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                    <a target="_blank" href="/pod-escape">PLAY</a>
-                </pfe-cta>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="/pod-escape/">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
+                    </pfe-cta>
+                </div>
             </pfe-card>
 
             <pfe-card id="card-pity-about-earth" style="--card-anim-x: 50vw; --card-anim-y: -50vh; --card-anim-delay: 0.3s" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./pity-about-earth.png">
+                <img pfe-overflow="top right left" src="./pityaboutearth.png">
                 <h2>Pity About Earth...</h2>
-                <p>TODO write Pity About Earth description.</p>
-                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                    <a target="_blank" href="/pity-about-earth">PLAY</a>
-                </pfe-cta>
+                <figure>
+                    <blockquote>
+                        Humanity, I am sick of you.  Yours truly,
+                    </blockquote>
+                    <figcaption>the Universe</figcaption>
+                </figure>
+                <p>Protect Earth from incoming asteroids. #2020</p>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="/pity-about-earth/">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/ScriptaGames/pityaboutearth">Contribute</a>
+                    </pfe-cta>
+                </div>
             </pfe-card>
 
             <pfe-card id="card-bash" style="--card-anim-x: -50vw; --card-anim-y: 50vh; --card-anim-delay: 0.6s" pfe-color="darker">
                 <img pfe-overflow="top right left" src="./bash.png">
                 <h2>Command Line Heroes: BASH</h2>
-                <p>TODO write BASH description.</p>
-                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                    <a target="_blank" href="/bash">PLAY</a>
-                </pfe-cta>
+                <p>
+                    How many commands can you type in 60 seconds?  Set the terminal on fire in this memory game.
+                </p>
+                <p>
+                    Created by Michael Clayton and Jared Sprague in collaboration with <a target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
+                </p>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="/bash/">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">Contribute</a>
+                    </pfe-cta>
+                </div>
             </pfe-card>
 
             <pfe-card id="card-zorbio" style="--card-anim-x: 50vw; --card-anim-y: 50vh; --card-anim-delay: 0.9s" pfe-color="darker">
@@ -82,10 +129,10 @@
                 <p>TODO write Zorbio description.</p>
                 <div slot="pfe-card--footer">
                     <pfe-cta pfe-priority="primary">
-                        <a target="_blank" href="/zorbio">PLAY</a>
+                        <a target="_blank" href="https://zorbio.openshiftdemos.com/zorbio">PLAY</a>
                     </pfe-cta>
-                    <pfe-cta pfe-priority="">
-                        <a href="#">View Source</a>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
                     </pfe-cta>
                 </div>
             </pfe-card>
