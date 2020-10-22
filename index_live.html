@@ -148,7 +148,10 @@
         </div>
 
         <script>
-            [...document.querySelectorAll(".prize-eligible")].forEach(trigger => trigger.addEventListener("click", function (event) {
+            [
+                ...document.querySelectorAll(".prize-eligible span"),
+                ...document.querySelectorAll(".prize-eligible pfe-icon")
+            ].forEach(trigger => trigger.addEventListener("click", function (event) {
                 document.querySelector("#prizes").open(event);
             }));
         </script>
