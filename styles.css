@@ -100,3 +100,6 @@ pfe-card > figure figcaption:before  {
     cursor: pointer;
 }
 
+body[unresolved] pfe-modal {
+    display: none;
+}
