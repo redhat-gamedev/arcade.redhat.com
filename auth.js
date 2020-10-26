@@ -7,19 +7,6 @@ keycloak.init().success(async function(authenticated) {
 
     let name = localStorage.getItem("arcade-username");
 
-    if (name) {
-        // if the token is stored locally, retrieve it and copy the username into a
-        console.log(`[auth] passing username ${name} to PAE`);
-        if (name) {
-            document.querySelector("#username").innerText = `, ${name},`;
-        }
-
-        document.body.removeAttribute("unauthenticated");
-        console.log(`[auth] name cached, no need to auth`);
-        return;
-    }
-
-
     let storedToken;
 
     try {
@@ -41,6 +28,18 @@ keycloak.init().success(async function(authenticated) {
         name = keycloak.tokenParsed.preferred_username || (keycloak.tokenParsed.email || "").replace(/@.*/, "")
         localStorage.setItem("arcade-username", name);
         localStorage.setItem("arcade-token", JSON.stringify(keycloak.tokenParsed));
+    }
+
+    if (name) {
+        // if the token is stored locally, retrieve it and copy the username into a
+        console.log(`[auth] passing username ${name} to PAE`);
+        if (name) {
+            document.querySelector("#username").innerText = `, ${name},`;
+        }
+
+        document.body.removeAttribute("unauthenticated");
+        console.log(`[auth] name cached, no need to auth`);
+        return;
     }
 
     if (authenticated) {
