@@ -22,261 +22,35 @@
 
                 margin-bottom: 4em;
             }
-
-            .game-list {
-                margin-top: 1.5em;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                grid-gap: 2em;
-                /* max-width: 1000px; */
+            main {
+                max-width: 600px;
             }
-
-            @media screen and (max-width: 1700px) {
-                .game-list {
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
-
-            @media screen and (max-width: 860px) {
-                .game-list {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            pfe-card {
-                opacity: 0;
-                width: 400px;
-                box-sizing: border-box;
-            }
-
-            body:not([unresolved]):not([unauthenticated]) pfe-card {
-                position: relative;
-                animation-name: slidein;
-                animation-delay: var(--card-anim-delay, 0);
-                animation-duration: 0.618s;
-                /* animation-timing-function: cubic-bezier(.64,.02,.94,.48); */
-                animation-timing-function: ease-in-out;
-                animation-fill-mode: forwards;
-            }
-
-            @keyframes slidein {
-                from {
-                    opacity: 0;
-                    top: var(--card-anim-y);
-                    left: var(--card-anim-x);
-                }
-
-                to {
-                    opacity: 1;
-                    top: 0;
-                    left: 0;
-                }
-            }
-
-
-
-            #username {
-                font-weight: bold;
-            }
-            pfe-card > figure {
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 0.8em;
-                border-left: 2px solid grey;
-            }
-            pfe-card > figure blockquote  {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            pfe-card > figure figcaption  {
-                position: relative;
-                font-style: italic;
-            }
-            pfe-card > figure figcaption:before  {
-                content: "— ";
-            }
-            .prize-eligible {
-                font-size: 0.9em;
-                font-weight: bold;
-                --pfe-icon--Color: #f9d000;
-                color: #00a8fc;
-                text-decoration: underline;
-                margin-bottom: 2em;
-            }
-            .prize-eligible span,
-            .prize-eligible pfe-icon {
-                cursor: pointer;
-            }
-
-            body[unresolved] pfe-modal {
-                display: none;
+            a:visited {
+                color: rebeccapurple;
             }
         </style>
 
         <link rel="stylesheet" href="./styles.css">
         <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css">
         <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-theme/latest/advanced-theme.min.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement@1.0.0-prerelease.56/dist/pfelement.min.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfe-styles@1.0.0-prerelease.56/dist/pfe-layouts.min.css" type="text/css" media="screen" charset="utf-8">
 
         <noscript>
             <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement@1.0.0-prerelease.56/dist/pfelement--noscript.min.css" type="text/css" media="screen" charset="utf-8">
         </noscript>
 
     </head>
-    <body unresolved unauthenticated>
+    <body>
 
-        <script defer src="keycloak.js"></script>
-        <script defer src="auth.js"></script>
-        <!-- <script>document.body.removeAttribute("unauthenticated")</script> -->
-
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-card@1.0.0-prerelease.56/dist/pfe-card.min.js"></script>
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.0.0-prerelease.56/dist/pfe-cta.min.js"></script>
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-icon@1.0.0-prerelease.56/dist/pfe-icon.js"></script>
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-modal@1.0.0-prerelease.56/dist/pfe-modal.js"></script>
-
+        <main>
         <h1>
             RED HAT ARCADE
         </h1>
-        <h2>
-            By the Gaming CoP
-        </h2>
 
-        <p>
-            Welcome<span id="username"></span> to the Red Hat Arcade, celebrating We Are Red Hat Week 2020!  Enjoy these open source
-            games created by Red Hatters.  All games run on OpenShift 4,
-            environment sponsored by Global Partner and Technical Enablement
-            (GPTE).
+        <p>Thank you for participating in the Arcade during We Are Red Hat Week!  <a href="https://arcade.redhat.com">arcade.redhat.com</a> will be going dark temporarily, but keep an eye on this space.  There's more to come!</p>
+
+        <p style="text-align: right">
+            Thanks, <i>the Gaming CoP</i>
         </p>
-
-        <div class="game-list">
-
-            <pfe-card id="card-pod-escape" style="--card-anim-x: -50vw; --card-anim-y: -50vh; --card-anim-delay: 0s" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./pod-escape.png">
-                <h2>Pod Escape</h2>
-                <p>
-                    Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a team of Red Hatters passionate about gaming and Kubernetes.
-                </p>
-
-                <div class="prize-eligible">
-                    <pfe-icon pfe-size="lg" icon="rh-trophy"></pfe-icon><span>ELIGIBLE FOR PRIZES</span>
-                </div>
-
-                <div class="prize-eligible">
-                    <pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="/pod-escape-leaderboard/">VIEW HIGH SCORES</a>
-                </div>
-
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="/pod-escape/">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-
-            <pfe-card id="card-pity-about-earth" style="--card-anim-x: 50vw; --card-anim-y: -50vh; --card-anim-delay: 0.3s" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./pityaboutearth.png">
-                <h2>Pity About Earth...</h2>
-                <figure>
-                    <blockquote>
-                        Humanity, I am sick of you. #2020
-                        <br> <br>
-                        Yours truly,
-                    </blockquote>
-                    <figcaption>the Universe</figcaption>
-                </figure>
-
-                <div class="prize-eligible">
-                    <pfe-icon pfe-size="lg" icon="rh-trophy"></pfe-icon><span>ELIGIBLE FOR PRIZES</span>
-                </div>
-
-                <div class="prize-eligible">
-                    <pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="/pity-about-earth-leaderboard/">VIEW HIGH SCORES</a>
-                </div>
-
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="/pity-about-earth/">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/ScriptaGames/pityaboutearth">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-
-            <pfe-card id="card-bash" style="--card-anim-x: -50vw; --card-anim-y: 50vh; --card-anim-delay: 0.6s" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./bash.png">
-                <h2>Command Line Heroes: BASH</h2>
-                <p>
-                    How many commands can you type in 60 seconds?  Set the terminal on fire in this memory game.
-                    Created in collaboration with <a target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
-                </p>
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="/bash/">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-
-            <pfe-card id="card-zorbio" style="--card-anim-x: 50vw; --card-anim-y: 50vh; --card-anim-delay: 0.9s" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./zorbio.png">
-                <h2>Zorbio</h2>
-                <p>
-                    Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!
-                </p>
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary">
-                        <a target="_blank" href="http://zorbio.openshiftdemos.com">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-
-        </div>
-
-        <pfe-modal id="prizes">
-          <h2 slot="pfe-modal--header">Red Hat Arcade: WE ARE RED HAT WEEK Prizes</h2>
-          <p>
-              The top 3 scores for PodEscape and Pity About Earth will receive
-              gift cards to the <a target="_blank"
-              href="https://store.ecompanystore.com/redhat/Shop/">Cool Stuff
-          Store</a>.
-          </p>
-
-          <ul>
-              <li>
-                  <pfe-icon pfe-size="md" style="--pfe-icon--Color: gold" icon="rh-trophy"></pfe-icon>
-                  1st place: $50</li>
-              <li>
-                  <pfe-icon pfe-size="md" style="--pfe-icon--Color: silver" icon="rh-trophy"></pfe-icon>
-                  2nd place: $40</li>
-              <li>
-                  <pfe-icon pfe-size="md" style="--pfe-icon--Color: brown" icon="rh-trophy"></pfe-icon>
-                  3rd place: $30</li>
-          </ul>
-          <p>
-               If one associate gets multiple top-scores in a game, they will
-               get the prize for their highest score. In case of a tie-score, a
-               tie-breaker match will be scheduled.
-          </p>
-        </pfe-modal>
-
-
-        <script>
-            [
-                ...document.querySelectorAll(".prize-eligible span"),
-                ...document.querySelectorAll(".prize-eligible pfe-icon")
-            ].forEach(trigger => trigger.addEventListener("click", function (event) {
-                document.querySelector("#prizes").open(event);
-            }));
-        </script>
-
+        </main>
     </body>
 </html>
