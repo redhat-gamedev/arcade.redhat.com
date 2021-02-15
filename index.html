@@ -48,21 +48,35 @@
                 box-sizing: border-box;
             }
 
+            pfe-cta[pfe-priority=primary] {
+                margin-right: 0.5em;
+            }
+
             body:not([unresolved]):not([unauthenticated]) pfe-card {
                 position: relative;
                 animation-name: slidein;
-                animation-delay: var(--card-anim-delay, 0);
+                animation-delay: var(--card-anim-delay);
                 animation-duration: 0.618s;
                 /* animation-timing-function: cubic-bezier(.64,.02,.94,.48); */
                 animation-timing-function: ease-in-out;
                 animation-fill-mode: forwards;
             }
+            .game-list pfe-card:nth-child(1) { --card-anim-delay: 0.2s; }
+            .game-list pfe-card:nth-child(2) { --card-anim-delay: 0.4s; }
+            .game-list pfe-card:nth-child(3) { --card-anim-delay: 0.6s; }
+            .game-list pfe-card:nth-child(4) { --card-anim-delay: 0.8s; }
+            .game-list pfe-card:nth-child(5) { --card-anim-delay: 1.0s; }
+            .game-list pfe-card:nth-child(6) { --card-anim-delay: 1.2s; }
+            .game-list pfe-card:nth-child(7) { --card-anim-delay: 1.4s; }
+            .game-list pfe-card:nth-child(8) { --card-anim-delay: 1.6s; }
+            .game-list pfe-card:nth-child(9) { --card-anim-delay: 1.8s; }
+            .game-list pfe-card:nth-child(10) { --card-anim-delay: 2.0s; }
 
             @keyframes slidein {
                 from {
                     opacity: 0;
-                    top: var(--card-anim-y);
-                    left: var(--card-anim-x);
+                    top: -10vw;
+                    left: -10vw;
                 }
 
                 to {
@@ -147,7 +161,8 @@
 
         <div class="game-list">
 
-            <pfe-card id="card-bash" style="--card-anim-x: -50vw; --card-anim-y: -50vh; --card-anim-delay: 0s" pfe-color="darker">
+
+            <pfe-card id="card-bash"  pfe-color="darker">
                 <img pfe-overflow="top right left" src="./bash.png">
                 <h2>Command Line Heroes: BASH</h2>
                 <p>
@@ -164,24 +179,24 @@
                 </div>
             </pfe-card>
 
-           <pfe-card id="card-pod-escape" style="--card-anim-x: -50vw; --card-anim-y: 50vh; --card-anim-delay: 0.6s" pfe-color="darker">
-                 <img pfe-overflow="top right left" src="./pod-escape.png">
-                 <h2>Pod Escape</h2>
-                 <p>
-                     Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a team of Red Hatters passionate about gaming and Kubernetes.
-                 </p>
+            <pfe-card id="card-pod-escape"  pfe-color="darker">
+                <img pfe-overflow="top right left" src="./pod-escape.png">
+                <h2>Pod Escape</h2>
+                <p>
+                    Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a team of Red Hatters passionate about gaming and Kubernetes.
+                </p>
 
-                 <div slot="pfe-card--footer">
-                     <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                         <a target="_blank" href="https://podescape.io">PLAY</a>
-                     </pfe-cta>
-                     <pfe-cta pfe-priority="secondary">
-                         <a target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
-                     </pfe-cta>
-                 </div>
-             </pfe-card>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="https://podescape.io">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
+                    </pfe-cta>
+                </div>
+            </pfe-card>
 
-            <pfe-card id="card-pity-about-earth" style="--card-anim-x: 50vw; --card-anim-y: -50vh; --card-anim-delay: 0.3s" pfe-color="darker">
+            <pfe-card id="card-pity-about-earth"  pfe-color="darker">
                 <img pfe-overflow="top right left" src="./pityaboutearth.png">
                 <h2>Pity About Earth...</h2>
                 <figure>
@@ -204,22 +219,37 @@
             </pfe-card>
 
 
-             <pfe-card id="card-zorbio" style="--card-anim-x: 50vw; --card-anim-y: 50vh; --card-anim-delay: 0.9s" pfe-color="darker">
-                 <img pfe-overflow="top right left" src="./zorbio.png">
-                 <h2>Zorbio</h2>
-                 <p>
-                     Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!
-                 </p>
-                 <div slot="pfe-card--footer">
-                     <pfe-cta pfe-priority="primary">
-                         <a target="_blank" href="https://zorb.io">PLAY</a>
-                     </pfe-cta>
-                     <pfe-cta pfe-priority="secondary">
-                         <a target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
-                     </pfe-cta>
-                 </div>
-             </pfe-card>
+            <pfe-card id="card-zorbio"  pfe-color="darker">
+                <img pfe-overflow="top right left" src="./zorbio.png">
+                <h2>Zorbio</h2>
+                <p>
+                    Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!
+                </p>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary">
+                        <a target="_blank" href="https://zorb.io">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
+                    </pfe-cta>
+                </div>
+            </pfe-card>
 
+            <pfe-card id="card-sqoff" pfe-color="darker">
+                <img pfe-overflow="top right left" src="./square-off.png">
+                <h2>Square Off</h2>
+                <p>
+                    Square Off is a multiplayer air hockey game, where you place squares on a grid to bounce the puck.  Protect your goal!
+                </p>
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="http://sqoff.com">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="https://github.com/ScriptaGames/SquareOff/">Contribute</a>
+                    </pfe-cta>
+                </div>
+            </pfe-card>
         </div>
     </body>
 </html>
