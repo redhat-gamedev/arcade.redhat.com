@@ -64,7 +64,7 @@
 
             body:not([unresolved]):not([unauthenticated]) pfe-card {
                 position: relative;
-                animation-name: slidein;
+                animation-name: slide-in-from-top-left;
                 animation-delay: var(--card-anim-delay);
                 animation-duration: 0.618s;
                 /* animation-timing-function: cubic-bezier(.64,.02,.94,.48); */
@@ -82,7 +82,7 @@
             .game-list pfe-card:nth-child(9) { --card-anim-delay: 1.8s; }
             .game-list pfe-card:nth-child(10) { --card-anim-delay: 2.0s; }
 
-            @keyframes slidein {
+            @keyframes slide-in-from-top-left {
                 from {
                     opacity: 0;
                     top: -10vw;
