@@ -1,0 +1,25 @@
+{
+  "name": "arcade.redhat.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "auth.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redhat-gamedev/arcade.redhat.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redhat-gamedev/arcade.redhat.com/issues"
+  },
+  "homepage": "https://github.com/redhat-gamedev/arcade.redhat.com#readme",
+  "devDependencies": {
+    "squirrelly": "^8.0.8",
+    "toml": "^3.0.0"
+  }
+}
