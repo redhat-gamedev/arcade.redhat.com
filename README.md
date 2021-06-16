@@ -12,7 +12,7 @@ npm install
 
 ### Editing content.toml
 
-To edit the content on the site, edit `content.toml` with your favorite text editor.
+To update content on the site, open `content.toml` with your favorite text editor.
 
 After editing, run `npm run build` to rebuild index.html.  Commit the changes (including the rebuilt index.html), and submit a PR.
 
