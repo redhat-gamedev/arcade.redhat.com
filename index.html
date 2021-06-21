@@ -33,6 +33,47 @@
                 margin-bottom: 4em;
             }
 
+            .col-auto {
+                flex: 0 0 auto;
+                max-width: 100%;
+                padding: 20px 15px;
+                position: relative;
+                width: auto;
+            }
+
+            .container {
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 1170px;
+                padding: 0 15px;
+                width: 100%;
+            }
+
+            @media screen and (max-width: 991px) {
+                .container {
+                    max-width: 970px;
+                }
+            }
+
+            @media screen and (max-width: 767px) {
+                .container {
+                    max-width: 750px;
+                }
+            }
+
+            .hero-band {
+                margin-top: 70px;
+            }
+
+            .logo-band {
+                background: #000;
+                padding: 0;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 99;
+            }
+
             .game-list {
                 margin-top: 1.5em;
                 display: grid;
@@ -131,6 +172,14 @@
                 cursor: pointer;
             }
 
+            .row-auto {
+                align-items: flex-start;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin: 0 -15px;
+            }
+
             body[unresolved] pfe-modal {
                 display: none;
             }
@@ -157,20 +206,34 @@
         <script async type="module" src="https://unpkg.com/@patternfly/pfe-icon@1.0.0/dist/pfe-icon.js"></script>
         <script async type="module" src="https://unpkg.com/@patternfly/pfe-modal@1.0.0/dist/pfe-modal.js"></script>
 
-        <h1>
-            RED HAT ARCADE
-        </h1>
-        <h2>
-            By the Red Hat Gaming Community of Practice
-        </h2>
+        <section class="logo-band">
+            <div class="container">
+                <div class="row-auto">
+                    <div class="col-auto py-2">
+                        <a href="https://www.redhat.com" target="_blank">
+                            <img src="https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo--on-dark.svg" alt="Red Hat" class="img-fluid" width="136">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <p>
-            Welcome<span id="username"></span> to the Red Hat Arcade!  Enjoy these open source
-            games created by Red Hatters. All games running on OpenShift sponsored by <a href="https://www.osci.io/">OSCI</a>.
-            This arcade is a community-driven effort.
-        </p>
+        <section class="hero-band">
+            <h1>
+                RED HAT ARCADE
+            </h1>
+            <h2>
+                By the Red Hat Gaming Community of Practice
+            </h2>
 
-        <div class="game-list">
+            <p>
+                Welcome<span id="username"></span> to the Red Hat Arcade!  Enjoy these open source
+                games created by Red Hatters. All games running on OpenShift sponsored by <a href="https://www.osci.io/">OSCI</a>.
+                This arcade is a community-driven effort.
+            </p>
+        </section>
+
+        <section class="game-list">
 
 
             <pfe-card id="card-bash"  pfe-color="darker">
@@ -277,6 +340,6 @@
                     </pfe-cta>
                 </div>
             </pfe-card>
-        </div>
+        </section>
     </body>
 </html>
