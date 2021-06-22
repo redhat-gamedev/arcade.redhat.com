@@ -17,9 +17,15 @@
     </script>
 
     <style type="text/css" media="screen">
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
         body {
             color: #f1f1f1;
-            background: #121212;
+            background: var(--pfe-theme--color--surface--darkest, #121212);
             font-family: "RedHatDisplay", sans-serif;
             display: flex;
             align-content: center;
@@ -127,9 +133,17 @@
             }
         }
 
-        a         { color: var(--pfe-broadcasted-link, #73bcf7); }
-        a:visited { color: var(--pfe-broadcasted-visited, #bee1f4); }
-        a:hover   { color: var(--pfe-broadcasted-hover, #bee1f4); }
+        a {
+            color: var(--pfe-broadcasted-link, #73bcf7);
+        }
+
+        a:visited {
+            color: var(--pfe-broadcasted-visited, #bee1f4);
+        }
+
+        a:hover {
+            color: var(--pfe-broadcasted-hover, #bee1f4);
+        }
 
         #username {
             font-weight: bold;
@@ -179,14 +193,13 @@
     <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css">
     <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-theme/latest/advanced-theme.min.css"
         type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement/dist/pfelement.min.css"
-        type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfe-styles/dist/pfe-layouts.min.css"
-        type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement/dist/pfelement.min.css" type="text/css"
+        media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfe-styles/dist/pfe-layouts.min.css" type="text/css"
+        media="screen" charset="utf-8">
 
     <noscript>
-        <link rel="stylesheet"
-            href="https://unpkg.com/@patternfly/pfelement/dist/pfelement--noscript.min.css"
+        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement/dist/pfelement--noscript.min.css"
             type="text/css" media="screen" charset="utf-8">
     </noscript>
 
@@ -197,44 +210,108 @@
     <!-- <script defer src="keycloak.js"></script> -->
     <!-- <script defer src="auth.js"></script> -->
 
+    <script async type="module" src="https://unpkg.com/@patternfly/pfe-navigation/dist/pfe-navigation.min.js"></script>
+    <script async type="module" src="https://unpkg.com/@patternfly/pfe-band/dist/pfe-band.min.js"></script>
     <script async type="module" src="https://unpkg.com/@patternfly/pfe-card/dist/pfe-card.min.js"></script>
     <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta/dist/pfe-cta.min.js"></script>
     <script async type="module" src="https://unpkg.com/@patternfly/pfe-icon/dist/pfe-icon.min.js"></script>
     <script async type="module" src="https://unpkg.com/@patternfly/pfe-modal/dist/pfe-modal.min.js"></script>
 
-    <h1> {{ site.title }} </h1>
-    <h2>
-        {{ site.subtitle }}
-    </h2>
+    <pfe-navigation>
+        <div slot="skip">
+            <ul>
+                <li><a href="#game-list">Skip to content</a></li>
+            </ul>
+        </div>
+        <a slot="logo" href="#">
+            <img class="redhat-logo"
+                src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--on-dark--200.png" class="screen"
+                alt="" aria-hidden="true" style="margin:0;width: 135px;" />
+        </a>
+    </pfe-navigation>
 
-    <p>
-        {{ site.description }}
-    </p>
+    <!-- Intro section -->
+    <pfe-band color="darkest">
+        <h1 slot="pfe-band--header">{{ section.intro.header }}</h1>
+        <h2> {{ section.intro.subtitle }} </h2>
+        <p>{{ section.intro.description }}</p>
+    </pfe-band>
 
-    <div class="game-list">
+    <pfe-band color="darkest">
+        <h2 slot="pfe-band--header">{{ section.games.header }}</h2>
+        <p>{{ section.games.description }}</p>
 
-        {{@foreach(games) => key, game}}
+        <div id="game-list" class="game-list">
 
-        <pfe-card id="card-{{ key }}" pfe-color="darker">
-            <img pfe-overflow="top right left" src="{{ game.thumb }}">
-            <h2>{{ game.title }}</h2>
-            <figure>
-                {{ game.description }}
-            </figure>
+            {{@foreach(games) => key, game}}
 
-            <div slot="pfe-card--footer">
-                <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                    <a target="_blank" href="{{ game.play }}">PLAY</a>
-                </pfe-cta>
-                <pfe-cta pfe-priority="secondary">
-                    <a target="_blank" href="{{ game.contribute }}">Contribute</a>
-                </pfe-cta>
-            </div>
-        </pfe-card>
+            <pfe-card id="card-{{ key }}" pfe-color="darker">
+                <img pfe-overflow="top right left" src="{{ game.thumb }}">
+                <h2>{{ game.title }}</h2>
+                <figure>
+                    {{ game.description }}
+                </figure>
 
-        {{/foreach}}
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="{{ game.play }}">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="{{ game.contribute }}">Contribute</a>
+                    </pfe-cta>
+                </div>
+            </pfe-card>
 
-    </div>
+            {{/foreach}}
+
+        </div>
+
+
+        <div slot="pfe-band--footer">
+            <p>This is the footer slot.</p>
+            <pfe-cta>
+                <a href="#">Learn more</a>
+            </pfe-cta>
+        </div>
+    </pfe-band>
+    <pfe-band color="darkest">
+        <h2 slot="pfe-band--header">Open Source Games</h2>
+        <p>The games in this collection are open-source, built with open-source tools, and </p>
+
+        <div id="game-list" class="game-list">
+
+            {{@foreach(games) => key, game}}
+
+            <pfe-card id="card-{{ key }}" pfe-color="darker">
+                <img pfe-overflow="top right left" src="{{ game.thumb }}">
+                <h2>{{ game.title }}</h2>
+                <figure>
+                    {{ game.description }}
+                </figure>
+
+                <div slot="pfe-card--footer">
+                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
+                        <a target="_blank" href="{{ game.play }}">PLAY</a>
+                    </pfe-cta>
+                    <pfe-cta pfe-priority="secondary">
+                        <a target="_blank" href="{{ game.contribute }}">Contribute</a>
+                    </pfe-cta>
+                </div>
+            </pfe-card>
+
+            {{/foreach}}
+
+        </div>
+
+
+        <div slot="pfe-band--footer">
+            <p>This is the footer slot.</p>
+            <pfe-cta>
+                <a href="#">Learn more</a>
+            </pfe-cta>
+        </div>
+    </pfe-band>
+
 </body>
 
 </html>

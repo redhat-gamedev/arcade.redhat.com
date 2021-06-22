@@ -1,10 +1,17 @@
 [site]
 title = "RED HAT ARCADE"
+
+[section.intro]
+header = "Welcome to the Red Hat Arcade"
 subtitle = "By the Red Hat Gaming Community of Practice"
 description = """
-Welcome<span id="username"></span> to the Red Hat Arcade! Enjoy these open source
-games created by Red Hatters. All games running on OpenShift sponsored by <a href="https://www.osci.io/">OSCI</a>.
-This arcade is a community-driven effort.
+Welcome<span id="username"></span> to the Red Hat Arcade!  This arcade is a community effort.
+"""
+
+[section.games]
+header = "Open Source Games Collection"
+description = """
+Enjoy these open source games created by Red Hatters. All games run on OpenShift sponsored by <a href="https://www.osci.io/">OSCI</a>.
 """
 
 [games.bash]
