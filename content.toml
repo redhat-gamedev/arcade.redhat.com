@@ -1,27 +1,26 @@
 [site]
-title = "RED HAT ARCADE"
-
-[section.intro]
-header = "Welcome to the Red Hat Arcade"
-subtitle = "By the Red Hat Gaming Community of Practice"
+title = "Red Hat Arcade"
 description = """
-Welcome<span id="username"></span> to the Red Hat Arcade!  This arcade is a community effort.
-"""
+Welcome to the Red Hat Arcade, brought to you by the Gaming Circle of Practice.
 
-[section.games]
-header = "Open Source Games Collection"
-description = """
-Enjoy these open source games created by Red Hatters. All games run on OpenShift sponsored by <a href="https://www.osci.io/">OSCI</a>.
+The arcade features a collection of open-source games created by Red Hatters.
+All games are free to play, and were built with open-source tools.
+
+The game isn't over when you're done playing. Your contributions of art, code, music, and ideas can shape the future of the games. Just click the Contribute link beside your favorite game to get started.
+
+All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.
 """
+collection_name = "Open-Source Games Collection"
+
 
 [games.bash]
 title =  "Command Line Heroes: BASH"
 play = "/bash/"
 contribute = "https://github.com/CommandLineHeroes/clh-bash"
-thumb = "./bash.png"
+thumb = "./bash.jpg"
 description = """
 How many commands can you type in 60 seconds? Set the terminal on fire in this memory game.
-Created in collaboration with <a target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
+Created in collaboration with <a rel="noopener" target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
 """
 
 [games.podescape]
@@ -38,21 +37,23 @@ team of Red Hatters passionate about gaming and Kubernetes.
 title =  "Pity About Earth..."
 play = "/pity-about-earth/"
 contribute = "https://github.com/ScriptaGames/pityaboutearth"
-thumb = "./pityaboutearth.png"
+thumb = "./pityaboutearth.jpg"
 description = """
+<figure>
 <blockquote>
     Humanity, I am sick of you. #2020
     <br> <br>
     Yours truly,
 </blockquote>
 <figcaption>the Universe</figcaption>
+</figure>
 """
 
 [games.zorbio]
 title =  "Zorbio"
 play = "https://zorb.io"
 contribute = "https://github.com/ScriptaGames/zorbio"
-thumb = "./zorbio.png"
+thumb = "./zorbio.jpg"
 description = """
 Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!
 """
