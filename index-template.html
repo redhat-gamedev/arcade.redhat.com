@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{{ site.title }} - arcade.redhat.com</title>
+
+    <link rel="preconnect dns-prefetch" href="https://static.redhat.com">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QW3B8Q3CH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3QW3B8Q3CH');
+    </script>
+
+    <link rel="stylesheet" href="build/styles.css" type="text/css" media="screen">
+
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement/dist/pfelement--noscript.min.css"
+            type="text/css" media="screen" charset="utf-8">
+    </noscript>
+
+</head>
+
+<body unresolved>
+
+    <script defer src="./build/arcade.js"></script>
+
+    <pfe-navigation>
+        <div slot="skip">
+            <ul>
+                <li><a href="#game-list">Skip to content</a></li>
+            </ul>
+        </div>
+        <a slot="logo" href="https://redhat.com" title="Red Hat homepage" rel="noopener">
+            <img class="redhat-logo"
+                src="https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo--on-dark.svg" class="screen"
+                width="135" height="31.9375" alt="Red Hat logo" aria-hidden="true" style="margin:0;" />
+        </a>
+    </pfe-navigation>
+
+    <pfe-band color="darker" style="width: 100%; --pfe-band--BackgroundColor: #000" >
+        <div>
+        <h1>{{ site.title }}</h1>
+            {{ site.description }}
+        </div>
+        <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
+    </pfe-band>
+
+    <h2 class="games-collection">{{ site.collection_name }}</h2>
+
+    <section id="game-list" class="game-list">
+
+        {{@foreach(games) => key, game}}
+
+        <pfe-card color="lightest" id="card-{{ key }}">
+            <img width="400" height="180" pfe-overflow="top right left" src="{{ game.thumb }}"
+                alt="thumbnail for game: {{ game.title }}">
+            <h2>{{ game.title }}</h2>
+            <div>
+                {{ game.description }}
+            </div>
+
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="{{ game.play }}">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="{{ game.contribute }}">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
+
+        {{/foreach}}
+
+    </section>
+</body>
+
+</html>

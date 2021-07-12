@@ -1,0 +1,79 @@
+[site]
+title = "Red Hat Arcade"
+description = """
+Welcome to the Red Hat Arcade, brought to you by the Gaming Community of Practice.
+
+The arcade features a collection of open-source games created by Red Hatters.
+All games are free to play, and were built with open-source tools.
+
+The game isn't over when you're done playing. Your contributions of art, code, music, and ideas can shape the future of the games. Just click the Contribute link beside your favorite game to get started.
+
+All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.
+"""
+collection_name = "Open-Source Games Collection"
+
+
+[games.bash]
+title =  "Command Line Heroes: BASH"
+play = "/bash/"
+contribute = "https://github.com/CommandLineHeroes/clh-bash"
+thumb = "./bash.jpg"
+description = """
+How many commands can you type in 60 seconds? Set the terminal on fire in this memory game.
+Created in collaboration with <a rel="noopener" target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
+"""
+
+[games.podescape]
+title =  "Pod Escape"
+play = "https://podescape.io"
+contribute = "https://github.com/CodeCafeOpenShiftGame/PodEscape"
+thumb = "./pod-escape.png"
+description = """
+Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a
+team of Red Hatters passionate about gaming and Kubernetes.
+"""
+
+[games.pae]
+title =  "Pity About Earth..."
+play = "/pity-about-earth/"
+contribute = "https://github.com/ScriptaGames/pityaboutearth"
+thumb = "./pityaboutearth.jpg"
+description = """
+<figure>
+<blockquote>
+    Humanity, I am sick of you. #2020
+    <br> <br>
+    Yours truly,
+</blockquote>
+<figcaption>the Universe</figcaption>
+</figure>
+"""
+
+[games.zorbio]
+title =  "Zorbio"
+play = "https://zorb.io"
+contribute = "https://github.com/ScriptaGames/zorbio"
+thumb = "./zorbio.jpg"
+description = """
+Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!
+"""
+
+[games.sqoff]
+title =  "Square Off"
+play = "http://sqoff.com"
+contribute = "https://github.com/ScriptaGames/SquareOff/"
+thumb = "./square-off.png"
+description = """
+Square Off is a multiplayer air hockey game, where you place squares on a grid to bounce the puck.  Protect your goal!
+"""
+
+[games.shipwars]
+title =  "Shipwars"
+play = "/shipwars/"
+contribute = "https://github.com/redhat-gamedev?q=shipwars&type=&language=&sort="
+thumb = "./shipwars.png"
+description = """
+If you have ever wanted to yell out "You sank my battleship", this is your opportunity. Place your ships
+on a grid, hoping to avoid the attacks of your AI opponent, while also placing your shots in an effort
+to destroy all of your opponents ships before they sink yours!
+"""

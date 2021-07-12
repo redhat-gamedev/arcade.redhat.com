@@ -1,345 +1,192 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>arcade.redhat.com</title>
+<html lang="en">
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QW3B8Q3CH"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Red Hat Arcade - arcade.redhat.com</title>
 
-            gtag('config', 'G-3QW3B8Q3CH');
-        </script>
+    <link rel="preconnect dns-prefetch" href="https://static.redhat.com">
 
-        <style type="text/css" media="screen">
-            body {
-                color: #f1f1f1;
-                background: #121212;
-                font-family: "RedHatDisplay", sans-serif;
-                display: flex;
-                align-content: center;
-                justify-content: center;
-                justify-items: center;
-                align-items: center;
-                flex-direction: column;
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QW3B8Q3CH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-                overflow-y: scroll;
-                overflow-x: hidden;
+        gtag('config', 'G-3QW3B8Q3CH');
+    </script>
 
-                margin-bottom: 4em;
-            }
+    <link rel="stylesheet" href="build/styles.css" type="text/css" media="screen">
 
-            .col-auto {
-                flex: 0 0 auto;
-                max-width: 100%;
-                padding: 20px 15px;
-                position: relative;
-                width: auto;
-            }
+    <noscript>
+        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement/dist/pfelement--noscript.min.css"
+            type="text/css" media="screen" charset="utf-8">
+    </noscript>
 
-            .container {
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 1170px;
-                padding: 0 15px;
-                width: 100%;
-            }
+</head>
 
-            @media screen and (max-width: 991px) {
-                .container {
-                    max-width: 970px;
-                }
-            }
+<body unresolved>
 
-            @media screen and (max-width: 767px) {
-                .container {
-                    max-width: 750px;
-                }
-            }
+    <script defer src="./build/arcade.js"></script>
 
-            .hero-band {
-                margin-top: 70px;
-            }
+    <pfe-navigation>
+        <div slot="skip">
+            <ul>
+                <li><a href="#game-list">Skip to content</a></li>
+            </ul>
+        </div>
+        <a slot="logo" href="https://redhat.com" title="Red Hat homepage" rel="noopener">
+            <img class="redhat-logo"
+                src="https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo--on-dark.svg" class="screen"
+                width="135" height="31.9375" alt="Red Hat logo" aria-hidden="true" style="margin:0;" />
+        </a>
+    </pfe-navigation>
 
-            .logo-band {
-                background: #000;
-                padding: 0;
-                position: fixed;
-                top: 0;
-                width: 100%;
-                z-index: 99;
-            }
+    <pfe-band color="darker" style="width: 100%; --pfe-band--BackgroundColor: #000" >
+        <div>
+        <h1>Red Hat Arcade</h1>
+            <p>Welcome to the Red Hat Arcade, brought to you by the Gaming Circle of Practice.</p>
+<p>The arcade features a collection of open-source games created by Red Hatters.
+All games are free to play, and were built with open-source tools.</p>
+<p>The game isn&#39;t over when you&#39;re done playing. Your contributions of art, code, music, and ideas can shape the future of the games. Just click the Contribute link beside your favorite game to get started.</p>
+<p>All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.</p>
+        </div>
+        <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
+    </pfe-band>
 
-            .game-list {
-                margin-top: 1.5em;
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
-                grid-gap: 2em;
-            }
+    <h2 class="games-collection">Open-Source Games Collection</h2>
 
-            @media screen and (max-width: 1700px) {
-                .game-list {
-                    grid-template-columns: 1fr 1fr;
-                }
-            }
+    <section id="game-list" class="game-list">
 
-            @media screen and (max-width: 860px) {
-                .game-list {
-                    grid-template-columns: 1fr;
-                }
-            }
-
-            pfe-card {
-                opacity: 0;
-                width: 400px;
-                box-sizing: border-box;
-            }
-
-            pfe-cta[pfe-priority=primary] {
-                margin-right: 0.5em;
-            }
-
-            body:not([unresolved]):not([unauthenticated]) pfe-card {
-                position: relative;
-                animation-name: slide-in-from-top-left;
-                animation-delay: var(--card-anim-delay);
-                animation-duration: 0.618s;
-                /* animation-timing-function: cubic-bezier(.64,.02,.94,.48); */
-                animation-timing-function: ease-in-out;
-                animation-fill-mode: forwards;
-            }
-            .game-list pfe-card:nth-child(1) { --card-anim-delay: 0.2s; }
-            .game-list pfe-card:nth-child(2) { --card-anim-delay: 0.4s; }
-            .game-list pfe-card:nth-child(3) { --card-anim-delay: 0.6s; }
-            .game-list pfe-card:nth-child(4) { --card-anim-delay: 0.8s; }
-            .game-list pfe-card:nth-child(5) { --card-anim-delay: 1.0s; }
-            .game-list pfe-card:nth-child(6) { --card-anim-delay: 1.2s; }
-            .game-list pfe-card:nth-child(7) { --card-anim-delay: 1.4s; }
-            .game-list pfe-card:nth-child(8) { --card-anim-delay: 1.6s; }
-            .game-list pfe-card:nth-child(9) { --card-anim-delay: 1.8s; }
-            .game-list pfe-card:nth-child(10) { --card-anim-delay: 2.0s; }
-
-            @keyframes slide-in-from-top-left {
-                from {
-                    opacity: 0;
-                    top: -10vw;
-                    left: -10vw;
-                }
-
-                to {
-                    opacity: 1;
-                    top: 0;
-                    left: 0;
-                }
-            }
-
-
-
-            #username {
-                font-weight: bold;
-            }
-            pfe-card > figure {
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 0.8em;
-                border-left: 2px solid grey;
-            }
-            pfe-card > figure blockquote  {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            pfe-card > figure figcaption  {
-                position: relative;
-                font-style: italic;
-            }
-            pfe-card > figure figcaption:before  {
-                content: "— ";
-            }
-            .prize-eligible {
-                font-size: 0.9em;
-                font-weight: bold;
-                --pfe-icon--Color: #f9d000;
-                color: #00a8fc;
-                text-decoration: underline;
-                margin-bottom: 2em;
-            }
-            .prize-eligible span,
-            .prize-eligible pfe-icon {
-                cursor: pointer;
-            }
-
-            .row-auto {
-                align-items: flex-start;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                margin: 0 -15px;
-            }
-
-            body[unresolved] pfe-modal {
-                display: none;
-            }
-        </style>
-
-        <!-- <link rel="stylesheet" href="./styles.css"> -->
-        <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-font/2/webfonts/red-hat-font.css">
-        <link rel="stylesheet" href="https://static.redhat.com/libs/redhat/redhat-theme/latest/advanced-theme.min.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement@1.0.0-prerelease.56/dist/pfelement.min.css" type="text/css" media="screen" charset="utf-8">
-        <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfe-styles@1.0.0-prerelease.56/dist/pfe-layouts.min.css" type="text/css" media="screen" charset="utf-8">
-
-        <noscript>
-            <link rel="stylesheet" href="https://unpkg.com/@patternfly/pfelement@1.0.0-prerelease.56/dist/pfelement--noscript.min.css" type="text/css" media="screen" charset="utf-8">
-        </noscript>
-
-    </head>
-    <body unresolved >
-
-        <!-- <script defer src="keycloak.js"></script> -->
-        <!-- <script defer src="auth.js"></script> -->
-
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-card@1.0.0/dist/pfe-card.min.js"></script>
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-cta@1.0.0/dist/pfe-cta.min.js"></script>
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-icon@1.0.0/dist/pfe-icon.js"></script>
-        <script async type="module" src="https://unpkg.com/@patternfly/pfe-modal@1.0.0/dist/pfe-modal.js"></script>
-
-        <section class="logo-band">
-            <div class="container">
-                <div class="row-auto">
-                    <div class="col-auto py-2">
-                        <a href="https://www.redhat.com" target="_blank">
-                            <img src="https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo--on-dark.svg" alt="Red Hat" class="img-fluid" width="136">
-                        </a>
-                    </div>
-                </div>
+        
+        <pfe-card color="lightest" id="card-bash">
+            <img width="400" height="180" pfe-overflow="top right left" src="./bash.jpg"
+                alt="thumbnail for game: Command Line Heroes: BASH">
+            <h2>Command Line Heroes: BASH</h2>
+            <div>
+                <p>How many commands can you type in 60 seconds? Set the terminal on fire in this memory game.
+Created in collaboration with <a rel="noopener" target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.</p>
             </div>
-        </section>
 
-        <section class="hero-band">
-            <h1>
-                RED HAT ARCADE
-            </h1>
-            <h2>
-                By the Red Hat Gaming Community of Practice
-            </h2>
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="/bash/">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
 
-            <p>
-                Welcome<span id="username"></span> to the Red Hat Arcade!  Enjoy these open source
-                games created by Red Hatters. All games running on OpenShift sponsored by <a href="https://www.osci.io/">OSCI</a>.
-                This arcade is a community-driven effort.
-            </p>
-        </section>
+        
+        <pfe-card color="lightest" id="card-podescape">
+            <img width="400" height="180" pfe-overflow="top right left" src="./pod-escape.png"
+                alt="thumbnail for game: Pod Escape">
+            <h2>Pod Escape</h2>
+            <div>
+                <p>Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a
+team of Red Hatters passionate about gaming and Kubernetes.</p>
+            </div>
 
-        <section class="game-list">
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="https://podescape.io">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
 
-
-            <pfe-card id="card-bash"  pfe-color="darker">
-                <img pfe-overflow="top right left" src="./bash.png">
-                <h2>Command Line Heroes: BASH</h2>
-                <p>
-                    How many commands can you type in 60 seconds?  Set the terminal on fire in this memory game.
-                    Created in collaboration with <a target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
-                </p>
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="/bash/">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-
-            <pfe-card id="card-pod-escape"  pfe-color="darker">
-                <img pfe-overflow="top right left" src="./pod-escape.png">
-                <h2>Pod Escape</h2>
-                <p>
-                    Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a team of Red Hatters passionate about gaming and Kubernetes.
-                </p>
-
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="https://podescape.io">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-
-            <pfe-card id="card-pity-about-earth"  pfe-color="darker">
-                <img pfe-overflow="top right left" src="./pityaboutearth.png">
-                <h2>Pity About Earth...</h2>
+        
+        <pfe-card color="lightest" id="card-pae">
+            <img width="400" height="180" pfe-overflow="top right left" src="./pityaboutearth.jpg"
+                alt="thumbnail for game: Pity About Earth...">
+            <h2>Pity About Earth...</h2>
+            <div>
                 <figure>
-                    <blockquote>
-                        Humanity, I am sick of you. #2020
-                        <br> <br>
-                        Yours truly,
-                    </blockquote>
-                    <figcaption>the Universe</figcaption>
-                </figure>
+<blockquote>
+    Humanity, I am sick of you. #2020
+    <br> <br>
+    Yours truly,
+</blockquote>
+<figcaption>the Universe</figcaption>
+</figure>
+            </div>
 
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="/pity-about-earth/">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/ScriptaGames/pityaboutearth">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="/pity-about-earth/">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/pityaboutearth">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
 
+        
+        <pfe-card color="lightest" id="card-zorbio">
+            <img width="400" height="180" pfe-overflow="top right left" src="./zorbio.jpg"
+                alt="thumbnail for game: Zorbio">
+            <h2>Zorbio</h2>
+            <div>
+                <p>Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!</p>
+            </div>
 
-            <pfe-card id="card-zorbio"  pfe-color="darker">
-                <img pfe-overflow="top right left" src="./zorbio.png">
-                <h2>Zorbio</h2>
-                <p>
-                    Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!
-                </p>
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary">
-                        <a target="_blank" href="https://zorb.io">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="https://zorb.io">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
 
-            <pfe-card id="card-sqoff" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./square-off.png">
-                <h2>Square Off</h2>
-                <p>
-                    Square Off is a multiplayer air hockey game, where you place squares on a grid to bounce the puck.  Protect your goal!
-                </p>
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="http://sqoff.com">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/ScriptaGames/SquareOff/">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
+        
+        <pfe-card color="lightest" id="card-sqoff">
+            <img width="400" height="180" pfe-overflow="top right left" src="./square-off.png"
+                alt="thumbnail for game: Square Off">
+            <h2>Square Off</h2>
+            <div>
+                <p>Square Off is a multiplayer air hockey game, where you place squares on a grid to bounce the puck.  Protect your goal!</p>
+            </div>
 
-	    <pfe-card id="card-shipwars" pfe-color="darker">
-                <img pfe-overflow="top right left" src="./shipwars.png">
-                <h2>Shipwars</h2>
-                <p>
-                    If you have ever wanted to yell out "You sank my battleship", this is your opportunity.  Place your ships on a grid, hoping to avoid the attacks of your AI opponent, while also placing your shots in an effort to destroy all of your opponents ships before they sink yours!
-                </p>
-                <div slot="pfe-card--footer">
-                    <pfe-cta pfe-priority="primary" slot="pfe-card--footer">
-                        <a target="_blank" href="/shipwars/">PLAY</a>
-                    </pfe-cta>
-                    <pfe-cta pfe-priority="secondary">
-                        <a target="_blank" href="https://github.com/redhat-gamedev?q=shipwars&type=&language=&sort=">Contribute</a>
-                    </pfe-cta>
-                </div>
-            </pfe-card>
-        </section>
-    </body>
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="http://sqoff.com">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/SquareOff/">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
+
+        
+        <pfe-card color="lightest" id="card-shipwars">
+            <img width="400" height="180" pfe-overflow="top right left" src="./shipwars.png"
+                alt="thumbnail for game: Shipwars">
+            <h2>Shipwars</h2>
+            <div>
+                <p>If you have ever wanted to yell out &quot;You sank my battleship&quot;, this is your opportunity. Place your ships
+on a grid, hoping to avoid the attacks of your AI opponent, while also placing your shots in an effort
+to destroy all of your opponents ships before they sink yours!</p>
+            </div>
+
+            <div slot="pfe-card--footer">
+                <pfe-cta pfe-priority="primary">
+                    <a rel="noopener" target="_blank" href="/shipwars/">PLAY</a>
+                </pfe-cta>
+                <pfe-cta pfe-priority="secondary">
+                    <a rel="noopener" target="_blank" href="https://github.com/redhat-gamedev?q=shipwars&type=&language=&sort=">Contribute</a>
+                </pfe-cta>
+            </div>
+        </pfe-card>
+
+        
+    </section>
+</body>
+
 </html>
