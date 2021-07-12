@@ -77,3 +77,14 @@ If you have ever wanted to yell out "You sank my battleship", this is your oppor
 on a grid, hoping to avoid the attacks of your AI opponent, while also placing your shots in an effort
 to destroy all of your opponents ships before they sink yours!
 """
+
+[games.subhunt]
+title =  "Sub Hunt"
+play = "http://subhunt.fun"
+contribute = "https://github.com/ScriptaGames/sub-hunt"
+thumb = "./subhunt_thumb.png"
+description = """
+In 1641, the Merchant Royal sunk. It was carrying more than 100,000 pounds of gold and silver (1.5 billion in modern money), and it’s location has never been known… until now.
+You have Narrowed down the shipwrecks’s location and you’re ready to.. Hunt for the Merchant Royal! Made in one weekend by Red Hatters for Ludum Dare.
+"""
+
