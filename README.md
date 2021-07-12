@@ -17,7 +17,13 @@ Page content is stored in `content.toml` and injected into `index-template.html`
 
 To update content on the site, open `content.toml` with your favorite text editor.
 
-After editing, run `npm run build` to rebuild index.html.  Commit the changes (including the rebuilt index.html), and submit a PR.
+After editing, run a build:
+
+```
+npm run build
+```
+
+When you're happy with your changes, commit them (including the rebuilt index.html), and submit a PR.
 
 #### Hero content
 
