@@ -18,6 +18,9 @@
         gtag('config', 'G-3QW3B8Q3CH');
     </script>
 
+    <script defer src="https://sso.redhat.com/auth/js/keycloak.js"></script>
+    <script defer src="./build/arcade.js"></script>
+
     <link rel="stylesheet" href="build/styles.css" type="text/css" media="screen">
 
     <noscript>
@@ -28,8 +31,6 @@
 </head>
 
 <body unresolved>
-
-    <script defer src="./build/arcade.js"></script>
 
     <pfe-navigation>
         <div slot="skip">
@@ -42,11 +43,13 @@
                 src="https://static.redhat.com/libs/redhat/brand-assets/latest/corp/logo--on-dark.svg" class="screen"
                 width="135" height="31.9375" alt="Red Hat logo" aria-hidden="true" style="margin:0;" />
         </a>
+        <pfe-navigation-main role="navigation" aria-label="Main">
+        </pfe-navigation-main>
     </pfe-navigation>
 
     <pfe-band color="darker" style="width: 100%; --pfe-band--BackgroundColor: #000" >
         <div>
-        <h1>Red Hat Arcade</h1>
+            <h1>Red Hat Arcade</h1>
             <p>Welcome to the Red Hat Arcade, brought to you by the Gaming Community of Practice.</p>
 <p>The arcade features a collection of open-source games created by Red Hatters.
 All games are free to play, and were built with open-source tools.</p>
@@ -54,6 +57,12 @@ All games are free to play, and were built with open-source tools.</p>
 <p>All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.</p>
         </div>
         <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
+        <div>
+            Are you a Red Hat Associate?   Log in to participate in WARHW!
+            <pfe-button arcade-action="login" size="large">
+                <button>Red Hat Associate Login</button>
+            </pfe-button>
+        </div>
     </pfe-band>
 
     <h2 class="games-collection">Open-Source Games Collection</h2>
@@ -72,7 +81,7 @@ Created in collaboration with <a rel="noopener" target="_blank" href="https://ww
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="/bash/">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="/bash/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">Contribute</a>
@@ -92,7 +101,7 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="https://podescape.io">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="https://podescape.io">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
@@ -118,7 +127,7 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="/pity-about-earth/">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="/pity-about-earth/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/pityaboutearth">Contribute</a>
@@ -137,7 +146,7 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="https://zorb.io">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="https://zorb.io">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
@@ -156,7 +165,7 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="http://sqoff.com">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="http://sqoff.com">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/SquareOff/">Contribute</a>
@@ -177,7 +186,7 @@ to destroy all of your opponents ships before they sink yours!</p>
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="/shipwars/">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="/shipwars/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/redhat-gamedev?q=shipwars&type=&language=&sort=">Contribute</a>
@@ -197,7 +206,7 @@ You have Narrowed down the shipwrecks’s location and you’re ready to.. Hunt 
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" target="_blank" href="http://subhunt.fun">PLAY</a>
+                    <a rel="noopener" arcade-play-link target="_blank" href="http://subhunt.fun">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/sub-hunt">Contribute</a>

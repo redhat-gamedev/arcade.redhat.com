@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import sqrl from "squirrelly";
 import fs from "fs";
 import toml from "toml";
