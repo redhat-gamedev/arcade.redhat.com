@@ -40,8 +40,8 @@ async function initializeKeycloak() {
         promiseType: "native",
         checkLoginIframe: false,
         onLoad: location.search.includes("warhw") ? "login-required" : undefined,
-        token: localStorage.token || undefined,
-        refreshToken: localStorage.refreshToken || undefined,
+        token: localStorage.getItem("arcade-token") || undefined,
+        refreshToken: localStorage.getItem("refreshToken") || undefined,
     };
 
     const authenticated = await keycloak.init(keycloakInitOptions);
@@ -51,8 +51,9 @@ async function initializeKeycloak() {
     keycloakInitialized = true;
 
     if (authenticated) {
-        localStorage.token = keycloak.token;
-        localStorage.refreshToken = keycloak.refreshToken;
+        localStorage.setItem("arcade-token", keycloak.token);
+        localStorage.setItem("refreshToken", keycloak.refreshToken);
+        localStorage.setItem("arcade-username", getUsername());
     }
 }
 
@@ -100,6 +101,24 @@ function activateLoginButtons() {
     else {
         document.querySelector("#warhw-login-prompt").classList.remove("inactive");
     }
+}
+
+function getUsername() {
+    if (keycloak.authenticated) {
+        try {
+            // try to get preferreed_username
+            return keycloak.tokenParsed.preferred_username;
+        } catch (e) {
+            // if that fails, try to extract username from email
+            try {
+                return keycloak.tokenParsed.email.split("@")[0];
+            } catch (e) {
+                // if that fails, assign a default
+                return "Red Hat Associate";
+            }
+        }
+    }
+    return null;
 }
 
 function authifyPlayButtons() {
