@@ -6,11 +6,18 @@ import "@patternfly/pfe-band";
 import "@patternfly/pfe-button";
 
 const keycloak = new Keycloak();
+let keycloakInitialized = false;
 
 async function main() {
     await initializeKeycloakWithRetry();
-    activateLoginButtons();
-    authifyPlayButtons();
+
+    // if it worked, handle it in the UI
+    if (keycloakInitialized) {
+        activateLoginButtons();
+        authifyPlayButtons();
+    }
+    // if keycloak init didn't work, don't touch the UI, it's default state is
+    // to display nothing authentication-related.
 }
 
 function clearTokens() {
@@ -29,7 +36,6 @@ async function initializeKeycloakWithRetry() {
 }
 
 async function initializeKeycloak() {
-
     const keycloakInitOptions = {
         promiseType: "native",
         checkLoginIframe: false,
@@ -40,7 +46,9 @@ async function initializeKeycloak() {
 
     const authenticated = await keycloak.init(keycloakInitOptions);
 
-    console.log('keycloak initialized', {authenticated});
+    console.log('keycloak initialized', { authenticated });
+
+    keycloakInitialized = true;
 
     if (authenticated) {
         localStorage.token = keycloak.token;
@@ -50,9 +58,41 @@ async function initializeKeycloak() {
 
 function activateLoginButtons() {
     document.addEventListener("pfe-button:click", ev => {
-        console.log("logging in");
-        keycloak.login();
+        if (ev.target.getAttribute("arcade-action") === "login") {
+            console.log("logging in");
+            keycloak.login();
+        }
+        else if (ev.target.getAttribute("arcade-action") === "logout") {
+            console.log("logging out");
+            keycloak.logout();
+        }
     });
+
+    document.querySelector("#warhw-login").classList.remove("inactive");
+
+    if (keycloak.authenticated) {
+        let displayName;
+        try {
+            // try to get preferreed_username
+            displayName = keycloak.tokenParsed.preferred_username;
+        } catch (e) {
+            // if that fails, try to extract username from email
+            try {
+                displayName = keycloak.tokenParsed.email.split("@")[0];
+            } catch (e) {
+                // if that fails, assign a default
+                displayName = "Red Hat Associate";
+            }
+        }
+
+        document.querySelector("#warhw-logged-in").classList.remove("inactive");
+        document.querySelector("#warhw-login-id").textContent = displayName;
+
+        [...document.querySelectorAll(".warhw.eligible.inactive")].forEach(e => e .classList.remove("inactive"));
+    }
+    else {
+        document.querySelector("#warhw-login-prompt").classList.remove("inactive");
+    }
 }
 
 function authifyPlayButtons() {

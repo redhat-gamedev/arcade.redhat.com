@@ -57,11 +57,19 @@ All games are free to play, and were built with open-source tools.</p>
 <p>All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.</p>
         </div>
         <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
-        <div>
-            Are you a Red Hat Associate?   Log in to participate in WARHW!
-            <pfe-button arcade-action="login" size="large">
-                <button>Red Hat Associate Login</button>
-            </pfe-button>
+        <div id="warhw-login" class="warhw inactive">
+            <div id="warhw-login-prompt" class="warhw inactive">
+                <pfe-button arcade-action="login" size="large">
+    <button>Red Hat Associate Login</button>
+</pfe-button>
+Are you a Red Hat Associate?   Log in to participate in WARHW!
+            </div>
+            <div id="warhw-logged-in" class="warhw inactive">
+                <pfe-icon icon="web-check" size="md" style="--pfe-icon--color: green"></pfe-icon> You're logged in as <span id="warhw-login-id"></span>!
+<pfe-button arcade-action="logout" variant="secondary">
+    <button>Logout</button>
+</pfe-button>
+            </div>
         </div>
     </pfe-band>
 
@@ -78,10 +86,10 @@ All games are free to play, and were built with open-source tools.</p>
                 <p>How many commands can you type in 60 seconds? Set the terminal on fire in this memory game.
 Created in collaboration with <a rel="noopener" target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.</p>
             </div>
-
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="/bash/">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="/bash/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/CommandLineHeroes/clh-bash">Contribute</a>
@@ -98,7 +106,10 @@ Created in collaboration with <a rel="noopener" target="_blank" href="https://ww
                 <p>Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a
 team of Red Hatters passionate about gaming and Kubernetes.</p>
             </div>
-
+                        <div class="warhw eligible inactive">
+                <pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!
+            </div>
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
                     <a rel="noopener" arcade-play-link target="_blank" href="https://podescape.io">PLAY</a>
@@ -124,7 +135,10 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 <figcaption>the Universe</figcaption>
 </figure>
             </div>
-
+                        <div class="warhw eligible inactive">
+                <pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!
+            </div>
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
                     <a rel="noopener" arcade-play-link target="_blank" href="/pity-about-earth/">PLAY</a>
@@ -143,10 +157,10 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
             <div>
                 <p>Fly a sphere through a 3D world, consuming food and other spheres, to get the high score in this multiplayer game!</p>
             </div>
-
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="https://zorb.io">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="https://zorb.io">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/zorbio">Contribute</a>
@@ -162,10 +176,10 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
             <div>
                 <p>Square Off is a multiplayer air hockey game, where you place squares on a grid to bounce the puck.  Protect your goal!</p>
             </div>
-
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="http://sqoff.com">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="http://sqoff.com">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/SquareOff/">Contribute</a>
@@ -183,10 +197,10 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 on a grid, hoping to avoid the attacks of your AI opponent, while also placing your shots in an effort
 to destroy all of your opponents ships before they sink yours!</p>
             </div>
-
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="/shipwars/">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="/shipwars/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/redhat-gamedev?q=shipwars&type=&language=&sort=">Contribute</a>
@@ -203,10 +217,10 @@ to destroy all of your opponents ships before they sink yours!</p>
                 <p>In 1641, the Merchant Royal sunk. It was carrying more than 100,000 pounds of gold and silver, and it’s location has never been known… until now.
 You have Narrowed down the shipwrecks’s location and you’re ready to.. Hunt for the Merchant Royal! Made in one weekend by Red Hatters for Ludum Dare, theme: Deeper and Deeper.</p>
             </div>
-
+            
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="http://subhunt.fun">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="http://subhunt.fun">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/sub-hunt">Contribute</a>

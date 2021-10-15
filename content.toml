@@ -11,6 +11,18 @@ The game isn't over when you're done playing. Your contributions of art, code, m
 All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.
 """
 collection_name = "Open-Source Games Collection"
+warhw_login = """
+<pfe-button arcade-action="login" size="large">
+    <button>Red Hat Associate Login</button>
+</pfe-button>
+Are you a Red Hat Associate?   Log in to participate in WARHW!
+"""
+warhw_logged_in = """
+<pfe-icon icon="web-check" size="md" style="--pfe-icon--color: green"></pfe-icon> You're logged in as <span id="warhw-login-id"></span>!
+<pfe-button arcade-action="logout" variant="secondary">
+    <button>Logout</button>
+</pfe-button>
+"""
 
 
 [games.bash]
@@ -28,6 +40,7 @@ title =  "Pod Escape"
 play = "https://podescape.io"
 contribute = "https://github.com/CodeCafeOpenShiftGame/PodEscape"
 thumb = "./pod-escape.png"
+leaderboard = true
 description = """
 Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a
 team of Red Hatters passionate about gaming and Kubernetes.
@@ -38,6 +51,7 @@ title =  "Pity About Earth..."
 play = "/pity-about-earth/"
 contribute = "https://github.com/ScriptaGames/pityaboutearth"
 thumb = "./pityaboutearth.jpg"
+leaderboard = true
 description = """
 <figure>
 <blockquote>

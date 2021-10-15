@@ -195,3 +195,11 @@ body[unresolved] pfe-modal {
     display: none;
 }
 
+
+.warhw {
+    opacity: 1;
+    transition: opacity 0.3s linear;
+}
+.warhw.inactive {
+    opacity: 0;
+}

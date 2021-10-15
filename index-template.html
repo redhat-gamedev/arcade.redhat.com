@@ -53,11 +53,13 @@
             {{ site.description }}
         </div>
         <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
-        <div>
-            Are you a Red Hat Associate?   Log in to participate in WARHW!
-            <pfe-button arcade-action="login" size="large">
-                <button>Red Hat Associate Login</button>
-            </pfe-button>
+        <div id="warhw-login" class="warhw inactive">
+            <div id="warhw-login-prompt" class="warhw inactive">
+                {{ site.warhw_login }}
+            </div>
+            <div id="warhw-logged-in" class="warhw inactive">
+                {{ site.warhw_logged_in }}
+            </div>
         </div>
     </pfe-band>
 
@@ -74,10 +76,15 @@
             <div>
                 {{ game.description }}
             </div>
+            {{@if(game.leaderboard)}}
+            <div class="warhw eligible inactive">
+                <pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!
+            </div>
+            {{/if}}
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="{{ game.play }}">PLAY</a>
+                    <a rel="noopener" {{@if(game.leaderboard)}}arcade-play-link{{/if}} target="_blank" href="{{ game.play }}">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="{{ game.contribute }}">Contribute</a>
