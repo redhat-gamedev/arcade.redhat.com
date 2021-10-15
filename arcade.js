@@ -64,7 +64,14 @@ function activateLoginButtons() {
         }
         else if (ev.target.getAttribute("arcade-action") === "logout") {
             console.log("logging out");
-            keycloak.logout();
+
+            // remove warhw querystring from the post-logout landing page to
+            // prevent automatic re-login.  if this ever needs to be more
+            // robust, use `new URL(location)` and remove the querystring from
+            // there.
+            const redirectUri = new URL(location);
+            redirectUri.search = "";
+            keycloak.logout({ redirectUri: redirectUri.href });
         }
     });
 
