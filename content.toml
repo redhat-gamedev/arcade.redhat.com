@@ -37,10 +37,11 @@ Created in collaboration with <a rel="noopener" target="_blank" href="https://ww
 
 [games.podescape]
 title =  "Pod Escape"
-play = "https://podescape.io"
+play = "/pod-escape/"
 contribute = "https://github.com/CodeCafeOpenShiftGame/PodEscape"
 thumb = "./pod-escape.png"
 leaderboard = true
+leaderboard_route = "/pod-escape-leaderboard"
 description = """
 Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a
 team of Red Hatters passionate about gaming and Kubernetes.
@@ -52,6 +53,7 @@ play = "/pity-about-earth/"
 contribute = "https://github.com/ScriptaGames/pityaboutearth"
 thumb = "./pityaboutearth.jpg"
 leaderboard = true
+leaderboard_route = "/pity-about-earth-leaderboard"
 description = """
 <figure>
 <blockquote>

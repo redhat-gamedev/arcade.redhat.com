@@ -78,7 +78,8 @@
             </div>
             {{@if(game.leaderboard)}}
             <div class="warhw eligible inactive">
-                <pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!
+                <div><pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!</div>
+                <div><pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="{{ game.leaderboard_route }}">VIEW HIGH SCORES</a></div>
             </div>
             {{/if}}
 
