@@ -104,3 +104,14 @@ In 1641, the Merchant Royal sunk. It was carrying more than 100,000 pounds of go
 You have Narrowed down the shipwrecks’s location and you’re ready to.. Hunt for the Merchant Royal! Made in one weekend by Red Hatters for Ludum Dare, theme: Deeper and Deeper.
 """
 
+[games.fourfold]
+title =  "FOURFOLD"
+play = "https://arcade.redhat.com/fourfold"
+contribute = "https://github.com/rottencandy/js13k2020"
+thumb = "./fourfold.png"
+description = """
+Navigate your way through this mind-bending puzzle game.  Developed by Red Hatter Mohammed Saud for the 2020 JS13K game jam.  The whole game is less than 13kb!
+
+Controls:
+Move - WASD or Arrows keys\n
+"""
