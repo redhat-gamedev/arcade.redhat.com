@@ -24,19 +24,22 @@ warhw_logged_in = """
 </pfe-button>
 """
 
-
-[games.bash]
-title =  "Command Line Heroes: BASH"
-play = "/bash/"
-contribute = "https://github.com/CommandLineHeroes/clh-bash"
-thumb = "./bash.jpg"
+[games.stonehold]
+title = "Stonehold"
+play = "https://arcade.redhat.com/stonehold"
+contribute = "https://github.com/ScriptaGames/Stonehold"
+thumb = "./stonehold_thumb.png"
 description = """
-How many commands can you type in 60 seconds? Set the terminal on fire in this memory game.
-Created in collaboration with <a rel="noopener" target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
+Your a dwarf that has been imprisoned and must escape Stonehold! See how far you can get in this dungon!
+Controls:\n
+Main attack - left mouse\n
+Ultimate attack - right mouse\n
+Move - WASD or Arrows keys\n
+Dodge - Space\n
 """
 
 [games.podescape]
-title =  "Pod Escape"
+title = "Pod Escape"
 play = "/pod-escape/"
 contribute = "https://github.com/CodeCafeOpenShiftGame/PodEscape"
 thumb = "./pod-escape.png"
@@ -48,7 +51,7 @@ team of Red Hatters passionate about gaming and Kubernetes.
 """
 
 [games.pae]
-title =  "Pity About Earth..."
+title = "Pity About Earth..."
 play = "/pity-about-earth/"
 contribute = "https://github.com/ScriptaGames/pityaboutearth"
 thumb = "./pityaboutearth.jpg"
@@ -65,8 +68,18 @@ description = """
 </figure>
 """
 
+[games.bash]
+title = "Command Line Heroes: BASH"
+play = "/bash/"
+contribute = "https://github.com/CommandLineHeroes/clh-bash"
+thumb = "./bash.jpg"
+description = """
+How many commands can you type in 60 seconds? Set the terminal on fire in this memory game.
+Created in collaboration with <a rel="noopener" target="_blank" href="https://www.redhat.com/en/command-line-heroes">Command Line Heroes</a>.
+"""
+
 [games.zorbio]
-title =  "Zorbio"
+title = "Zorbio"
 play = "https://zorb.io"
 contribute = "https://github.com/ScriptaGames/zorbio"
 thumb = "./zorbio.jpg"
@@ -75,7 +88,7 @@ Fly a sphere through a 3D world, consuming food and other spheres, to get the hi
 """
 
 [games.sqoff]
-title =  "Square Off"
+title = "Square Off"
 play = "http://sqoff.com"
 contribute = "https://github.com/ScriptaGames/SquareOff/"
 thumb = "./square-off.png"
@@ -84,7 +97,7 @@ Square Off is a multiplayer air hockey game, where you place squares on a grid t
 """
 
 [games.shipwars]
-title =  "Shipwars"
+title = "Shipwars"
 play = "/shipwars/"
 contribute = "https://github.com/redhat-gamedev?q=shipwars&type=&language=&sort="
 thumb = "./shipwars.png"
@@ -95,7 +108,7 @@ to destroy all of your opponents ships before they sink yours!
 """
 
 [games.subhunt]
-title =  "Sub Hunt"
+title = "Sub Hunt"
 play = "http://subhunt.fun"
 contribute = "https://github.com/ScriptaGames/sub-hunt"
 thumb = "./subhunt_thumb.png"
@@ -105,7 +118,7 @@ You have Narrowed down the shipwrecks’s location and you’re ready to.. Hunt 
 """
 
 [games.fourfold]
-title =  "FOURFOLD"
+title = "FOURFOLD"
 play = "https://arcade.redhat.com/fourfold"
 contribute = "https://github.com/rottencandy/js13k2020"
 thumb = "./fourfold.png"
