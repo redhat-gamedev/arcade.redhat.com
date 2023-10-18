@@ -33,11 +33,6 @@ leaderboard = true
 leaderboard_route = "/stonehold-leaderboard"
 description = """
 Your a dwarf that has been imprisoned and must escape Stonehold! See how far you can get in this dungon!
-Controls:\n
-Main attack - left mouse\n
-Ultimate attack - right mouse\n
-Move - WASD or Arrows keys\n
-Dodge - Space\n
 """
 
 [games.podescape]
