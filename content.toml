@@ -29,6 +29,8 @@ title = "Stonehold"
 play = "https://arcade.redhat.com/stonehold"
 contribute = "https://github.com/ScriptaGames/Stonehold"
 thumb = "./stonehold_thumb.png"
+leaderboard = true
+leaderboard_route = "/stonehold-leaderboard"
 description = """
 Your a dwarf that has been imprisoned and must escape Stonehold! See how far you can get in this dungon!
 Controls:\n
