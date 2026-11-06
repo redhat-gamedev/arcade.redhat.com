@@ -8,18 +8,7 @@
 
     <link rel="preconnect dns-prefetch" href="https://static.redhat.com">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QW3B8Q3CH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-3QW3B8Q3CH');
-    </script>
-
-    <script defer src="https://sso.redhat.com/auth/js/keycloak.js"></script>
-    <script defer src="./build/arcade.js"></script>
+        <script defer src="./build/arcade.js"></script>
 
     <link rel="stylesheet" href="build/styles.css" type="text/css" media="screen">
 
@@ -57,21 +46,7 @@ All games are free to play, and were built with open-source tools.</p>
 <p>All games run on OpenShift sponsored by <a rel="noopener" href="https://www.osci.io/">OSCI</a>.</p>
         </div>
         <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
-        <div id="warhw-login" class="warhw inactive">
-            <div id="warhw-login-prompt" class="warhw inactive">
-                <pfe-button arcade-action="login" size="large">
-    <button>Red Hat Associate Login</button>
-</pfe-button>
-Are you a Red Hat Associate?   Log in to participate in WARHW!
-            </div>
-            <div id="warhw-logged-in" class="warhw inactive">
-                <pfe-icon icon="web-check" size="md" style="--pfe-icon--color: green"></pfe-icon> You're logged in as <span id="warhw-login-id"></span>!
-<pfe-button arcade-action="logout" variant="secondary">
-    <button>Logout</button>
-</pfe-button>
-            </div>
-        </div>
-    </pfe-band>
+            </pfe-band>
 
     <h2 class="games-collection">Open-Source Games Collection</h2>
 
@@ -83,16 +58,12 @@ Are you a Red Hat Associate?   Log in to participate in WARHW!
                 alt="thumbnail for game: Stonehold">
             <h2>Stonehold</h2>
             <div>
-                <p>Your a dwarf that has been imprisoned and must escape Stonehold! See how far you can get in this dungeon!</p>
-            </div>
-                        <div class="warhw eligible inactive">
-		    <div><pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!</div>
-                <div><pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="/stonehold-leaderboard">VIEW HIGH SCORES</a></div>
+                <p>You&#39;re a dwarf that has been imprisoned and must escape Stonehold! See how far you can get in this dungon!</p>
             </div>
             
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="https://arcade.redhat.com/stonehold">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="https://arcade.redhat.com/stonehold">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/Stonehold">Contribute</a>
@@ -109,14 +80,10 @@ Are you a Red Hat Associate?   Log in to participate in WARHW!
                 <p>Your project is being deleted&mdash;help a pod escape from a disappearing digital landscape. Built by a
 team of Red Hatters passionate about gaming and Kubernetes.</p>
             </div>
-                        <div class="warhw eligible inactive">
-		    <div><pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!</div>
-                <div><pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="/pod-escape-leaderboard">VIEW HIGH SCORES</a></div>
-            </div>
             
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="/pod-escape/">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="/pod-escape/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/CodeCafeOpenShiftGame/PodEscape">Contribute</a>
@@ -139,14 +106,10 @@ team of Red Hatters passionate about gaming and Kubernetes.</p>
 <figcaption>the Universe</figcaption>
 </figure>
             </div>
-                        <div class="warhw eligible inactive">
-		    <div><pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!</div>
-                <div><pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="/pity-about-earth-leaderboard">VIEW HIGH SCORES</a></div>
-            </div>
             
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" arcade-play-link target="_blank" href="/pity-about-earth/">PLAY</a>
+                    <a rel="noopener"  target="_blank" href="/pity-about-earth/">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="https://github.com/ScriptaGames/pityaboutearth">Contribute</a>
