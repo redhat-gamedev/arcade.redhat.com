@@ -1,0 +1,14 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  annotations:
+    servicenow.com/appcode: ARCA-001
+  description: Red Hat Open Source Arcade sponsored by the Gaming CoP
+  name: arca-001-arcade-redhat-com
+  namespace: uxe
+  title: arcade.redhat.com
+spec:
+  lifecycle: production
+  owner: group:redhat/off-001-mpp-develop
+  type: website
