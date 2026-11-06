@@ -5,10 +5,27 @@ import "@patternfly/pfe-card";
 import "@patternfly/pfe-band";
 import "@patternfly/pfe-button";
 
-const keycloak = new Keycloak();
+// The WARHW promotion (Red Hat Associate login, prize eligibility, high
+// scores) is toggled by `site.warhw_enabled` in content.toml.  When it's off,
+// the template renders no login markup and doesn't load the Keycloak SDK, so
+// we detect that here and skip all authentication.  Flip the flag in
+// content.toml and re-run `npm run build` to re-enable this code path.
+function warhwEnabled() {
+    return typeof Keycloak !== "undefined"
+        && document.querySelector("#warhw-login") !== null;
+}
+
+let keycloak;
 let keycloakInitialized = false;
 
 async function main() {
+    if (!warhwEnabled()) {
+        console.log("WARHW disabled, skipping authentication");
+        return;
+    }
+
+    keycloak = new Keycloak();
+
     await initializeKeycloakWithRetry();
 
     // if it worked, handle it in the UI

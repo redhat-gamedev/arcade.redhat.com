@@ -1,5 +1,10 @@
 [site]
 title = "Red Hat Arcade"
+# Master switch for the WARHW promotion: the Red Hat Associate login button,
+# the logged-in banner, the per-game "Eligible for prizes!" / high-score links,
+# and the Keycloak SSO integration that backs them.
+# Set to true and re-run `npm run build` to turn the whole thing back on.
+warhw_enabled = false
 description = """
 Welcome to the Red Hat Arcade, brought to you by the Gaming Community of Practice.
 

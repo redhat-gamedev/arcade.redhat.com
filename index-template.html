@@ -8,17 +8,9 @@
 
     <link rel="preconnect dns-prefetch" href="https://static.redhat.com">
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3QW3B8Q3CH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-3QW3B8Q3CH');
-    </script>
-
+    {{@if(site.warhw_enabled)}}
     <script defer src="https://sso.redhat.com/auth/js/keycloak.js"></script>
+    {{/if}}
     <script defer src="./build/arcade.js"></script>
 
     <link rel="stylesheet" href="build/styles.css" type="text/css" media="screen">
@@ -53,6 +45,7 @@
             {{ site.description }}
         </div>
         <img slot="pfe-band--aside" src="./cab.png" width="158" height="340" alt="photo of an arcade cabinet">
+        {{@if(site.warhw_enabled)}}
         <div id="warhw-login" class="warhw inactive">
             <div id="warhw-login-prompt" class="warhw inactive">
                 {{ site.warhw_login }}
@@ -61,6 +54,7 @@
                 {{ site.warhw_logged_in }}
             </div>
         </div>
+        {{/if}}
     </pfe-band>
 
     <h2 class="games-collection">{{ site.collection_name }}</h2>
@@ -76,7 +70,7 @@
             <div>
                 {{ game.description }}
             </div>
-            {{@if(game.leaderboard)}}
+            {{@if(site.warhw_enabled && game.leaderboard)}}
             <div class="warhw eligible inactive">
 		    <div><pfe-icon icon="rh-trophy" size="lg" style="--pfe-icon--color: gold"></pfe-icon> Eligible for prizes!</div>
                 <div><pfe-icon pfe-size="lg" style="--pfe-icon--Color: white" icon="rh-award-ribbon"></pfe-icon><a target="_blank" href="{{ game.leaderboard_route }}">VIEW HIGH SCORES</a></div>
@@ -85,7 +79,7 @@
 
             <div slot="pfe-card--footer">
                 <pfe-cta pfe-priority="primary">
-                    <a rel="noopener" {{@if(game.leaderboard)}}arcade-play-link{{/if}} target="_blank" href="{{ game.play }}">PLAY</a>
+                    <a rel="noopener" {{@if(site.warhw_enabled && game.leaderboard)}}arcade-play-link{{/if}} target="_blank" href="{{ game.play }}">PLAY</a>
                 </pfe-cta>
                 <pfe-cta pfe-priority="secondary">
                     <a rel="noopener" target="_blank" href="{{ game.contribute }}">Contribute</a>
