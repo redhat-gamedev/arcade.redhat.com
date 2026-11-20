@@ -1,0 +1,21 @@
+# Never bake these into the image.
+# (The builder still reads Containerfile itself even though it is listed
+# here — .dockerignore only affects what COPY/ADD can see.)
+
+# VCS / IDE / local dev
+.git
+.gitignore
+.idea
+node_modules
+ssl
+
+# Cluster backups — never bake into the image
+bc-backup-*.yaml
+
+# OpenShift plumbing, not site content
+openshift
+
+# Container build plumbing
+Containerfile
+.dockerignore
+.containerignore

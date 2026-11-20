@@ -4,3 +4,4 @@ keycloak.json
 node_modules
 
 ssl/*
+bc-backup-*.yaml

@@ -1,0 +1,79 @@
+# ============================================================================
+# Reviewed and approved — apply as part of openshift/migration-runbook.md
+# (push master FIRST; the ConfigChange trigger starts a build on apply).
+#
+# Switches the arcade-redhat-com BuildConfig from S2I (Source strategy,
+# builder image openshift/httpd:2.4-el7) to a Docker / Containerfile
+# build. The git source and output ImageStreamTag
+# (arcade-redhat-com:latest) are untouched.
+#
+# What this patch changes:
+#   1. spec.strategy — Source -> Docker, building from the Containerfile
+#      at the repo root. The base image (hi/httpd) is pinned by the
+#      Containerfile's own FROM line — no dockerStrategy.from override,
+#      so the repo fully controls the image.
+#   2. spec.triggers — rewritten to keep the Generic + GitHub webhooks
+#      (secret references preserved by name, so the existing webhook
+#      URLs in the GitHub repo settings keep working) and the
+#      ConfigChange trigger, while DROPPING the ImageChange trigger
+#      that referenced the old S2I builder stream
+#      (openshift/httpd:2.4-el7). With a Docker strategy that trigger
+#      is stale at best; removing it guarantees the Containerfile's
+#      FROM is the only base image.
+#
+# NOTE: the ConfigChange trigger means applying this patch immediately
+# starts a build — that is the intended rollout.
+#
+# BEFORE applying — remove the stale keycloak.json volume mount from the
+# Deployment (it targets /opt/app-root/src/, the OLD S2I docroot, which
+# does not exist in the new image; left in place it crash-loops the new
+# pods with CreateContainerConfigError). List volume names first:
+#
+#   oc set volumes deploy/arcade-redhat-com -n prod-arcade-rh-com
+#
+# then remove it (substitute the volume name shown):
+#
+#   oc set volumes deploy/arcade-redhat-com -n prod-arcade-rh-com \
+#     --remove --name=<volume-name>
+#
+# Back up the Deployment first:
+#
+#   oc get deploy arcade-redhat-com -n prod-arcade-rh-com -o yaml \
+#     > deploy-backup-$(date +%Y%m%d-%H%M).yaml
+#
+# Apply:
+#
+#   oc patch bc arcade-redhat-com -n prod-arcade-rh-com \
+#     --type merge --patch-file openshift/buildconfig-strategy-patch.yaml
+#
+#   (older oc without --patch-file: use the inline JSON variant)
+#
+# Watch:
+#
+#   oc start-build arcade-redhat-com -n prod-arcade-rh-com --follow
+#
+# Rollback (restore the backed-up S2I BuildConfig):
+#
+#   oc apply -f bc-backup-20261120.yaml
+# ============================================================================
+
+spec:
+  strategy:
+    # `null` removes the old S2I strategy block in a merge patch
+    sourceStrategy: null
+    type: Docker
+    dockerStrategy:
+      # Path to the Containerfile, relative to the source root
+      dockerfilePath: Containerfile
+  # Trigger lists have no merge key, so a strategic merge patch replaces
+  # the list wholesale — this is the full, intended trigger set.
+  triggers:
+  - type: Generic
+    generic:
+      secretReference:
+        name: arcade-redhat-com-generic-webhook-secret
+  - type: GitHub
+    github:
+      secretReference:
+        name: arcade-redhat-com-github-webhook-secret
+  - type: ConfigChange
